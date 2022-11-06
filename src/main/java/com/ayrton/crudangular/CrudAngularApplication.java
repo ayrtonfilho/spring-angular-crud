@@ -20,11 +20,13 @@ public class CrudAngularApplication {
 	@Bean
 	CommandLineRunner initDatabase( CourseRepository courseRepository){
 		return args -> {
-			courseRepository.deleteAll();
-			Course c = new Course();
-			c.setName("Java Spring Boot");
-			c.setCategory("back-end");
-			courseRepository.save(c);
+			// courseRepository.deleteAll();
+			for (int i = 0; i < 10; i++) {
+				Course c = new Course();
+				c.setName("Java Spring Boot "+ i);
+				c.setCategory("back-end");
+				courseRepository.save(c);
+			}
 		};
 	}
 }
