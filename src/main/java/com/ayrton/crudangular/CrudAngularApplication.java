@@ -17,16 +17,25 @@ public class CrudAngularApplication {
 	}
 
 
-	@Bean
-	CommandLineRunner initDatabase( CourseRepository courseRepository){
-		return args -> {
-			// courseRepository.deleteAll();
-			for (int i = 0; i < 10; i++) {
-				Course c = new Course();
-				c.setName("Java Spring Boot "+ i);
-				c.setCategory("back-end");
-				courseRepository.save(c);
-			}
-		};
-	}
+	// @Bean
+	// CommandLineRunner initDatabase( CourseRepository courseRepository){
+	// 	return args -> {
+	// 		// courseRepository.deleteAll();
+	// 		for (int i = 0; i < 4; i++) {
+	// 			Course c = new Course();
+
+	// 			if(i > 2){
+
+	// 				c.setName("aava Spring Boot "+ i);
+	// 				c.setCategory("back-end");
+	// 				courseRepository.save(c);
+	// 			}else{
+
+	// 				c.setName("Zava Spring Boot "+ i);
+	// 				c.setCategory("back-end");
+	// 				courseRepository.save(c);
+	// 			}
+	// 		}
+	// 	};
+	// }
 }

@@ -2,10 +2,8 @@ package com.ayrton.crudangular.controller;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-// import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +35,7 @@ public class CourseController {
 
     @GetMapping
     public List<Course> getCourses() {
-        return courseRepository.findAll();
+        return courseRepository.findByOrderByNameAsc();
     }
 
     @GetMapping("/{id}")
@@ -67,7 +65,7 @@ public class CourseController {
     
     
     @PutMapping("{id}")
-    public ResponseEntity<Course> update(@PathVariable Long id, @RequestBody Course course) {
+    public ResponseEntity<Course> update(@PathVariable Long id, @RequestBody final Course course) {
         return courseRepository.findById(id)
         
         .map(courseFound -> {
